@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cyberpunk Design System */
+@layer base {
+  :root {
+    --background: 220 23% 98%; /* light gray */
+    --foreground: 220 23% 20%; /* dark blue text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 23% 20%;
+
+    --popover: 0 0% 98%;
+    --popover-foreground: 220 23% 20%;
+
+    --primary: 220 60% 30%; /* blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 355 78% 56%; /* red */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 23% 90%;
+    --muted-foreground: 220 23% 30%;
+
+    --accent: 50 100% 50%; /* yellow */
+    --accent-foreground: 220 60% 30%;
+
+    --destructive: 350 100% 35%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 23% 80%;
+    --input: 220 23% 90%;
+    --ring: 220 60% 30%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans;
+    background: #F8F9FA;
+    color: #1D3557;
+  }
+
+  /* Custom cyberpunk cursor */
+  .cyber-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00FFFF;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: all 0.1s ease;
+  }
+
+  .cyber-cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #00FFFF;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .cyber-cursor.hover {
+    width: 40px;
+    height: 40px;
+    border-color: #FF0080;
+    background: rgba(255, 0, 128, 0.1);
+  }
+}
+
+@layer components {
+  /* Neon glow effects */
+  /* .neon-glow and .neon-text removed for a clean, professional look */
+
+  /* Cyberpunk button styles */
+  .cyber-button {
+    @apply bg-transparent border-2 border-primary text-primary px-6 py-3 font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+  }
+
+  .cyber-button-pink {
+    @apply border-secondary text-secondary hover:bg-secondary hover:text-white hover:shadow-lg;
+  }
+
+  /* Card hover effects */
+  .cyber-card {
+    @apply bg-white border border-primary/30 backdrop-blur-sm transition-all duration-300 hover:border-primary hover:shadow-lg hover:scale-105;
+  }
+}
+
+/* Grid animation for Three.js background */
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.grid-line {
+  animation: grid-pulse 3s ease-in-out infinite;
+}
+
+/* Loading animation */
+@keyframes matrix-rain {
+  0% { transform: translateY(-100vh); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.matrix-char {
+  animation: matrix-rain 2s linear infinite;
+}
