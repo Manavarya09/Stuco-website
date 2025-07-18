@@ -42,10 +42,38 @@
     @apply border-border;
   }
 
-  body {
+  html, body {
     @apply font-sans;
-    background: #F8F9FA;
+    background: linear-gradient(135deg, 
+      #F5F5DC 0%, 
+      #F0E68C 15%, 
+      #F5F5DC 30%, 
+      #E6E6FA 45%, 
+      #F0F8FF 60%, 
+      #F5F5DC 75%, 
+      #F0E68C 90%, 
+      #F5F5DC 100%);
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease-in-out infinite;
     color: #1D3557;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    background: transparent;
+    min-height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   /* Custom cyberpunk cursor */
