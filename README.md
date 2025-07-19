@@ -1,4 +1,4 @@
-# Cyber Campus Glow 🚀
+
 
 A modern, sleek website for student organizations with a cyberpunk aesthetic and elegant design elements.
 
